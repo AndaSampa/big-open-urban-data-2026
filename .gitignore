@@ -1,0 +1,38 @@
+# Bastidores e arquivos locais
+/planejamento/
+/tmp/
+/rascunhos/
+/.local/
+
+# Fontes de construção das apresentações
+**/scripts/
+**/assets/
+**/apresentacao/*.png
+**/apresentacao/links.json
+
+# Segredos e configurações locais
+.env
+.env.*
+!.env.example
+
+# Sistemas operacionais e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*~
+*.swp
+
+# Ambientes e temporários de programação
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*.inspect.ndjson
+
+# Testes e cobertura
+.coverage
+htmlcov/
+.pytest_cache/
