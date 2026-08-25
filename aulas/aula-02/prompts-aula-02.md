@@ -147,16 +147,17 @@ Apresentar oralmente quatro caminhos seguros. A turma escolhe um primeiro produt
 | Módulo | Material principal | Produto possível | Ideia que ensina |
 |---|---|---|---|
 | **Censo** | setores e atributos censitários | coroplético documentado | agregação, denominador, classes e contexto |
-| **Escolas** | pontos e atributos do Censo Escolar | categorias ou símbolos proporcionais | ponto, atributo e infraestrutura declarada |
+| **Escolas** | pontos escolares do OSM e Overture + tabela oficial do Censo Escolar | representação de uma fonte e comparação de coberturas | unidades diferentes, cobertura e impossibilidade de junção automática |
 | **POIs** | Overture Places | categorias, seleção ou contagem | classificação, cobertura e fragmentação cadastral |
-| **Relação** | Censo + escolas ou POIs | pontos contextualizados por setores | dentro, perto, contagem e associação territorial |
+| **Relação** | setores + pontos do OSM ou Overture | pontos contextualizados por setores | dentro, perto, contagem e associação territorial |
+| **Saúde — extra** | pontos de saúde do OSM e Overture + tabela CNES | representação de uma fonte e comparação de coberturas | cadastro oficial sem geometria versus fontes espaciais não exaustivas |
 
 ## PROMPT 1 — Pedir ao Work um cardápio executável
 
 Este prompt é opcional. Use-o se for interessante mostrar que a IA também pode avaliar o material disponível.
 
 ```text
-Com as camadas que já existem no kit, apresente quatro produtos que conseguimos produzir agora: um com Censo, um com escolas, um com POIs e um relacionando duas fontes.
+Com as camadas que já existem no kit, apresente quatro produtos que conseguimos produzir agora: um com Censo, um com escolas do OSM ou Overture, um com POIs e um relacionando setores censitários a uma camada pontual. Se houver uma quinta opção segura usando saúde, apresente-a como extra.
 
 Para cada opção, escreva em uma linha: operação, arquivos gerados, tempo provável e principal cuidado interpretativo. Não execute nada ainda.
 ```
@@ -169,12 +170,21 @@ O professor pode ignorar sugestões inviáveis e negociar a escolha apenas entre
 
 Executar um módulo no percurso essencial. Repetir outros apenas se houver tempo.
 
+Em todos os módulos:
+
+- use somente campos e geometrias que existam no kit;
+- preserve a versão anterior do QGZ e das camadas derivadas;
+- ao concluir, exporte o QGZ atualizado e, quando houver alteração de dados, o GeoPackage e um ZIP versionado;
+- disponibilize links clicáveis para os arquivos produzidos, não apenas caminhos internos.
+
 ## MÓDULO A — Censo como base agregadora
 
 ```text
 Vamos aprofundar o Censo.
 
 Inspecione as variáveis já relacionadas às feições censitárias e proponha até três que façam sentido representar em Santana de Parnaíba. Para cada uma, diga se é total, proporção, taxa, média ou densidade e qual cuidado exige.
+
+Use apenas as variáveis efetivamente disponíveis no kit: população total, totais de domicílios, domicílios particulares, domicílios coletivos, média de moradores em domicílios particulares ocupados, percentual de domicílios imputados, domicílios particulares ocupados, densidade populacional derivada e percentual de domicílios particulares ocupados derivado. Não proponha renda, raça, idade, escolaridade ou outra variável que não esteja na camada.
 
 Não produza o mapa ainda. Aguarde nossa escolha da variável.
 ```
@@ -184,7 +194,7 @@ Após a negociação:
 ```text
 Escolhemos [VARIÁVEL]. Prepare uma camada temática no GeoPackage e uma versão do projeto QGIS com essa representação.
 
-Use [MÉTODO] com [NÚMERO] classes e uma paleta [SEQUENCIAL/DIVERGENTE]. Registre o denominador, os limites das classes, a fonte, o período e os setores sem informação.
+Use [MÉTODO] com [NÚMERO] classes e uma paleta adequada à relação nos dados. Para as variáveis atuais, prefira uma paleta sequencial; use uma divergente somente se existir uma referência central substantivamente justificável. Registre o denominador, os limites das classes, a fonte, o período e os setores sem informação.
 
 Não trate a característica agregada do setor como atributo individual de seus moradores. Ao terminar, diga o que devo conferir quando abrir o QGZ.
 ```
@@ -206,7 +216,12 @@ Mantenha a classificação e teste uma paleta adequada para daltonismo. Não sub
 ```text
 Vamos explorar as escolas.
 
-Inspecione a camada e proponha até três representações verificáveis: uma categórica, uma quantitativa e uma sobre infraestrutura declarada. Em cada opção, diga qual campo será usado e o que ele não permite concluir.
+Inspecione separadamente:
+- os 54 objetos escolares filtrados do OSM;
+- os 112 Places escolares filtrados do Overture;
+- a tabela oficial com 106 escolas do Censo Escolar, que não possui geometria.
+
+Proponha até três representações verificáveis usando como pontos apenas OSM ou Overture. Para cada opção, informe a fonte, o campo realmente disponível e o que não pode ser concluído. A tabela do Censo Escolar pode entrar como comparação de universo e atributos, mas não deve ser espacializada nem ligada aos pontos por semelhança de nome.
 
 Não execute ainda. Aguarde nossa escolha.
 ```
@@ -217,6 +232,8 @@ Após a escolha:
 Produza a opção [OPÇÃO ESCOLHIDA] no mesmo GeoPackage e atualize uma cópia do projeto QGIS.
 
 Preserve os pontos originais, documente filtros e valores ausentes e use uma legenda legível. Não conclua qualidade, atendimento ou acesso apenas pela presença da escola ou por seus atributos cadastrais.
+
+Não transfira matrículas, dependência administrativa ou infraestrutura do Censo Escolar para pontos OSM ou Overture sem uma chave oficial verificada. Se a opção depender desses atributos, interrompa e explique por que ela não é executável com o kit atual.
 
 Ao terminar, diga o que devo conferir no QGIS.
 ```
@@ -252,6 +269,8 @@ Começar por uma relação simples e visualmente verificável. Evitar, nesta aul
 ```text
 Vamos relacionar [CAMADA DE PONTOS] com as feições censitárias.
 
+Use como camada de pontos somente uma camada geométrica existente: `overture_pois_4674`, `osm_equipamentos_4674` ou uma de suas visualizações filtradas de educação ou saúde. Não use as tabelas `auditoria_escolas_sem_geometria` ou `auditoria_cnes_sem_geometria` em operações espaciais.
+
 Proponha uma operação espacial simples que possamos compreender e conferir no QGIS, como identificar em qual setor cada ponto está ou contar pontos por setor. Explique em duas frases o que a operação produz e o que ela não demonstra.
 
 Não execute ainda. Aguarde nossa confirmação.
@@ -265,6 +284,30 @@ Execute a operação combinada. Preserve as camadas de entrada, salve o resultad
 Registre pontos sem correspondência, setores sem pontos, SRC usado na operação e campos criados. Não atribua automaticamente a cada ponto as características individuais dos moradores do setor.
 
 Ao terminar, diga como conferir o resultado no QGIS.
+```
+
+---
+
+## MÓDULO E — Saúde como rodada extra
+
+```text
+Vamos explorar saúde como uma rodada extra.
+
+Inspecione separadamente os 25 objetos de saúde filtrados do OSM, os 109 Places de saúde filtrados do Overture e a tabela com 118 estabelecimentos do CNES sem geometria.
+
+Proponha até duas representações usando como pontos apenas OSM ou Overture e uma comparação tabular entre as três fontes. Não trate as contagens como equivalentes, não espacialize o CNES e não conclua cobertura real de atendimento.
+
+Não execute ainda. Aguarde nossa escolha.
+```
+
+Após a escolha:
+
+```text
+Produza a opção [OPÇÃO ESCOLHIDA] preservando as camadas originais. Documente categorias, filtros, unidade de registro, período e ausências de cada fonte.
+
+O CNES deve permanecer como tabela oficial sem geometria. Não vincule seus registros aos pontos OSM ou Overture por nome ou proximidade sem uma chave verificável.
+
+Ao terminar, atualize uma cópia do QGZ, exporte os arquivos produzidos e disponibilize links clicáveis.
 ```
 
 ---
