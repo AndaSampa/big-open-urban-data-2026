@@ -39,13 +39,18 @@ Localize o registro persistido do município e os arquivos produzidos na Aula 1.
 
 Crie `atividade-aula-02/` sem alterar os arquivos da Aula 1. Prepare um GeoPackage e um projeto QGIS que eu possa abrir no início da aula.
 
-O kit mínimo deve conter, quando já disponíveis e verificáveis:
+Antes de concluir, procure os arquivos em toda a estrutura da Aula 1, inclusive originais, derivados, pacotes compactados, manifestos e exportações. O kit mínimo deve conter obrigatoriamente:
 - limite oficial do município;
-- feições censitárias intramunicipais e seus atributos documentados;
-- escolas do Censo Escolar;
+- feições censitárias intramunicipais e atributos documentados que permitam ao menos uma tematização demográfica ou socioeconômica;
 - POIs do Overture;
-- equipamentos e vias do OpenStreetMap que sejam úteis como contexto;
+- ao menos uma camada de pontos verificável;
 - tabelas de auditoria para registros que não puderam ser espacializados corretamente.
+
+Inclua também, quando tecnicamente verificáveis:
+- escolas como pontos a partir de uma fonte que realmente forneça coordenadas ou geometrias, sem geocodificação silenciosa;
+- equipamentos e vias do OpenStreetMap com geometria, fazendo uma nova consulta somente se a consulta anterior tiver preservado apenas identificadores e tags.
+
+Se as feições censitárias intramunicipais não forem encontradas no Work, não declare o kit concluído: informe exatamente o que procurou e proponha a aquisição oficial necessária. Ausência de coordenadas escolares ou de geometria OSM deve ser registrada, mas não impede a conclusão quando Censo, limite e POIs estiverem espacializados.
 
 Use SIRGAS 2000 geográfico, EPSG:4674, para preservar ou intercambiar dados quando adequado. Crie também camadas de trabalho em SIRGAS 2000 / UTM 23S, EPSG:31983, para operações locais em metros. Não altere apenas a etiqueta do SRC: reprojete quando necessário e preserve os originais.
 
@@ -56,14 +61,25 @@ Produza:
 - `atividade-aula-02/registro/diario-cartografico.md`;
 - scripts reproduzíveis e checksums.
 
+Crie também `atividade-aula-02/entrega/kit-cartografico-aula-02-santana-de-parnaiba.zip`, reunindo o QGZ, o GeoPackage, o manifesto, o diário e as instruções mínimas de abertura. O pacote não deve duplicar originais pesados desnecessariamente.
+
 No QGZ, organize as camadas em grupos com nomes legíveis, use caminhos relativos e aplique apenas estilos neutros. Não produza ainda um argumento cartográfico pronto: quero demonstrar a tematização ao vivo.
 
-Ao concluir, valide que o QGZ abre, que as camadas existem, que as tabelas têm registros e que os SRCs estão declarados. Mostre uma tabela curta com camada, geometria, quantidade, fonte, período e SRC. Depois aguarde.
+Ao concluir, valide que o QGZ abre, que as camadas existem, que as tabelas têm registros e que os SRCs estão declarados. Mostre uma tabela curta com camada, geometria, quantidade, fonte, período e SRC.
+
+Na resposta final, não mostre apenas caminhos internos. Entregue links clicáveis para baixar:
+1. o pacote ZIP completo;
+2. o projeto QGZ;
+3. o GeoPackage;
+4. o manifesto de camadas.
+
+Se a interface não permitir disponibilizar algum arquivo diretamente, diga isso explicitamente e exporte ao menos o ZIP como arquivo para download. Depois aguarde.
 ```
 
 ### Critérios de aprovação do kit
 
 - O QGZ abre sem procurar arquivos manualmente.
+- A resposta oferece um link clicável para baixar o pacote completo.
 - O GeoPackage contém as camadas prometidas.
 - O Censo possui geometria intramunicipal e chave verificável para os atributos.
 - As camadas originais e reprojetadas são distinguíveis.
@@ -326,4 +342,3 @@ Registrar os tempos e ocorrências numa tabela:
 - O QGZ gerado pelo Work preserva fontes, estilos e caminhos relativos?
 - Quantas rodadas adicionais cabem sem comprometer a discussão?
 - Que decisões do Work precisam ser obrigatoriamente conferidas no QGIS?
-
