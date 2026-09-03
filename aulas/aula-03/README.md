@@ -2,8 +2,6 @@
 
 A aula acrescenta o eixo Z à investigação. Parte da Blue Marble e da aparente lisura da Terra para discutir escala, forma terrestre, geoide e referências verticais; aproxima-se do terreno por meio de modelos de elevação; distingue terreno, superfície e altura de objetos; e chega à cidade como nuvem de pontos, edifícios, cobertura, volume e mudança no tempo.
 
-> **Material em revisão local.** A apresentação e os prompts já foram organizados na estrutura do curso, mas esta versão ainda não deve ser publicada antes da conferência do professor.
-
 ## Materiais
 
 - [Apresentação em PDF](apresentacao/aula-03.pdf)

@@ -17,6 +17,7 @@ Cidades não são feitas apenas de edifícios, ruas e infraestruturas. São tamb
 - [Aula 1 — Quem produz a cidade que aparece nos dados?](aulas/aula-01/README.md)
 - [Aula 2 — O que muda quando os dados recebem lugar, forma, escala e vizinhança?](aulas/aula-02/README.md)
 - [Aula 3 — O que passa a existir quando conseguimos olhar mais de perto?](aulas/aula-03/README.md)
+- [Aula 4 — Como a computação consegue operar em muitas dimensões?](aulas/aula-04/README.md)
 
 ## Percurso do curso
 
@@ -30,10 +31,10 @@ O curso acompanha uma investigação que ganha novas dimensões a cada encontro:
 | **Aula 1** | Quem produz a cidade que aparece nos dados? | fontes, cadastros, dados abertos, plataformas e proveniência |
 | **Aula 2** | O que muda quando os dados recebem lugar, forma, escala e vizinhança? | geometrias, QGIS, SRC, tematização e primeira relação espacial |
 | **Aula 3** | O que cada modo de observação torna visível? | superfície, elevação, altura, sensores e LiDAR |
-| **Aula 4** | Quando representações relacionadas se tornam evidência? | sobreposição, associação, explicações alternativas e modelos |
+| **Aula 4** | Como a computação consegue operar em muitas dimensões? | espaços de atributos, distância, redução, agrupamento e crítica da representação |
 | **Aula 5** | Que cidades conseguimos tornar perceptíveis? | trabalhos da turma, síntese e apresentação da investigação do professor |
 
-As aulas futuras serão acrescentadas conforme forem produzidas e validadas. A **Aula 3 está em revisão local**: sua apresentação, seus prompts e sua estrutura já foram incorporados ao repositório, mas ainda não foram publicados.
+As aulas futuras serão acrescentadas conforme forem produzidas e validadas.
 
 ## Materiais disponíveis
 
@@ -63,6 +64,15 @@ As aulas futuras serão acrescentadas conforme forem produzidas e validadas. A *
 - apresentação completa em PDF;
 - roteiro enxuto de prompts para terreno, edificações e altura;
 - preparação prévia do laboratório com FABDEM e Google Open Buildings;
+- fontes, links e créditos.
+
+### Aula 4 — A cidade em muitas dimensões
+
+- apresentação completa em PDF;
+- laboratório progressivo de 1D a espaços multidimensionais;
+- histogramas, escalas linear e logarítmica, dispersões e visualização 3D;
+- PCA, agrupamento não supervisionado e taxonomia explícita;
+- comparação entre vizinhança geográfica e vizinhança no espaço de atributos;
 - fontes, links e créditos.
 
 ## A investigação da disciplina
@@ -140,10 +150,15 @@ big-open-urban-data-2026/
         ├── apresentacao/aula-02.pdf
         ├── prompts-aula-02.md
         └── fontes-e-creditos.md
-    └── aula-03/
+    ├── aula-03/
         ├── README.md
         ├── apresentacao/aula-03.pdf
         ├── prompts-aula-03.md
+        └── fontes-e-creditos.md
+    └── aula-04/
+        ├── README.md
+        ├── apresentacao/aula-04.pdf
+        ├── prompts-aula-04.md
         └── fontes-e-creditos.md
 ```
 
