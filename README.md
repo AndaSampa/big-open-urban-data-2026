@@ -18,6 +18,7 @@ Cidades não são feitas apenas de edifícios, ruas e infraestruturas. São tamb
 - [Aula 2 — O que muda quando os dados recebem lugar, forma, escala e vizinhança?](aulas/aula-02/README.md)
 - [Aula 3 — O que passa a existir quando conseguimos olhar mais de perto?](aulas/aula-03/README.md)
 - [Aula 4 — Como a computação consegue operar em muitas dimensões?](aulas/aula-04/README.md)
+- [Aula 5 — Como o QGIS pode reunir diferentes leituras da cidade?](aulas/aula-05/README.md)
 
 ## Percurso do curso
 
@@ -32,9 +33,9 @@ O curso acompanha uma investigação que ganha novas dimensões a cada encontro:
 | **Aula 2** | O que muda quando os dados recebem lugar, forma, escala e vizinhança? | geometrias, QGIS, SRC, tematização e primeira relação espacial |
 | **Aula 3** | O que cada modo de observação torna visível? | superfície, elevação, altura, sensores e LiDAR |
 | **Aula 4** | Como a computação consegue operar em muitas dimensões? | espaços de atributos, distância, redução, agrupamento e crítica da representação |
-| **Aula 5** | Que cidades conseguimos tornar perceptíveis? | trabalhos da turma, síntese e apresentação da investigação do professor |
+| **Aula 5** | Como reunir diferentes leituras da cidade? | QGIS, GeoPortal, hidrologia, mobilidade, 3D, classificação e síntese crítica |
 
-As aulas futuras serão acrescentadas conforme forem produzidas e validadas.
+As cinco aulas formam uma sequência acumulativa: cada encontro retoma os anteriores e acrescenta uma nova maneira de observar, relacionar e representar a cidade.
 
 ## Materiais disponíveis
 
@@ -74,6 +75,16 @@ As aulas futuras serão acrescentadas conforme forem produzidas e validadas.
 - PCA, agrupamento não supervisionado e taxonomia explícita;
 - comparação entre vizinhança geográfica e vizinhança no espaço de atributos;
 - fontes, links e créditos.
+
+### Aula 5 — QGIS como sistema de leitura da cidade
+
+- apresentação completa em PDF;
+- GeoPortal local como síntese das representações do curso;
+- hidrologia experimental e discussão sobre limiares;
+- transporte público em GTFS e limites das medidas de proximidade;
+- maquete no Blender e vídeo do percurso solar;
+- revisão dos agrupamentos e notebook de assinaturas morfológicas;
+- roteiro integral dos prompts, fontes e créditos.
 
 ## A investigação da disciplina
 
@@ -155,10 +166,16 @@ big-open-urban-data-2026/
         ├── apresentacao/aula-03.pdf
         ├── prompts-aula-03.md
         └── fontes-e-creditos.md
-    └── aula-04/
+    ├── aula-04/
         ├── README.md
         ├── apresentacao/aula-04.pdf
         ├── prompts-aula-04.md
+        └── fontes-e-creditos.md
+    └── aula-05/
+        ├── README.md
+        ├── apresentacao/aula-05.pdf
+        ├── materiais/percurso-solar.mp4
+        ├── prompts-aula-05.md
         └── fontes-e-creditos.md
 ```
 
